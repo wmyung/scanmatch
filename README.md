@@ -2,6 +2,10 @@
 
 **Point your camera at barcodes. See what your spreadsheet says. One HTML file, no server, no install.**
 
+### ▶ Open the app: **<https://wmyung.github.io/scanmatch/>** · 한국어: **<https://wmyung.github.io/scanmatch/?lang=ko>**
+
+Tap **EN / 한** in the top bar to switch language any time.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/live-wmyung.github.io%2Fscanmatch-2ea44f)](https://wmyung.github.io/scanmatch/)
 [![Offline](https://img.shields.io/badge/runs-offline%20in%20the%20browser-blue)](#privacy)

@@ -2,6 +2,10 @@
 
 **카메라로 바코드를 비추면, 내 엑셀 표의 내용이 바로 보입니다. HTML 파일 하나, 서버·설치 없음.**
 
+### ▶ 앱 열기: **<https://wmyung.github.io/scanmatch/?lang=ko>** (영어: <https://wmyung.github.io/scanmatch/?lang=en>)
+
+위쪽의 **EN / 한** 버튼으로 언제든 언어를 바꿀 수 있습니다.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![바로 쓰기](https://img.shields.io/badge/바로%20쓰기-wmyung.github.io%2Fscanmatch-2ea44f)](https://wmyung.github.io/scanmatch/)
 

@@ -474,10 +474,12 @@ function applyLang(){
   document.documentElement.lang=LANG;
   const set={dataBtn:'data',modeS:'modeS',modeP:'modeP',modeK:'modeK',liveT:'live',dpTitle:'dpTitle',dpPrivacy:'dpPrivacy',dpLoadT:'dpLoad',dpFileT:'dpFile',dpSample:'dpSample',dpNew:'dpNew',gsBtn:'gsBtn',gsNote:'gsNote',dpEditT:'dpEdit',addRow:'addRow',addCol:'addCol',dpSetT:'dpSet',keyLbl:'keyCol',cmpLbl:'cmpCol',posLbl:'posCol',optCaseT:'optCase',optStripT:'optStrip',dpCamT:'dpCam',holdT:'hold',optLaserT:'laser',expTable:'expTable',expLog:'expLog',clrLog:'clrLog',clrAll:'clrAll',langT:'lang',camLbl:'cam',hpTitle:'help'};
   for(const [id,k] of Object.entries(set)) if($(id)) $(id).textContent=T(k);
+  $('langBtn').textContent=LANG==='ko'?'EN':'한'; $('langBtn').title=LANG==='ko'?'Switch to English':'한국어로 바꾸기';
   $('gsUrl').placeholder=T('gsPh'); $('findIn').placeholder=T('find'); $('keys').innerHTML=T('keys'); $('helpBody').innerHTML=T('helpBody');
   if(running) $('liveT').textContent=T('stop'); setFacing(facing); updateSnap();
 }
 function renderAll(){ renderShow(); renderSettings(); if($('dataPanel').classList.contains('show')) renderSheet(); setMode(MODE); }
+$('langBtn').onclick=()=>{ LANG=LANG==='ko'?'en':'ko'; save(); applyLang(); renderAll(); if($('pic').style.display==='block'){ if(MODE==='rack') drawRackPhoto(); else if(lastShot) drawPhoto(lastShot.bmp,lastShot.found); } };
 $('dataBtn').onclick=()=>{ renderSettings(); renderSheet(); $('dataPanel').classList.add('show'); };
 $('dpClose').onclick=()=>$('dataPanel').classList.remove('show');
 $('helpBtn').onclick=()=>$('helpPanel').classList.add('show'); $('hpClose').onclick=()=>$('helpPanel').classList.remove('show');
@@ -497,7 +499,7 @@ addEventListener('resize',()=>{ clearTimeout(window.__rz); window.__rz=setTimeou
 const SAMPLE=/*SAMPLE*/[];
 
 /* ---------------- start ---------------- */
-load(); facing=CFG.facing; reindex(); applyLang(); renderAll();
+load(); { const q=new URLSearchParams(location.search).get('lang'); if(q==='ko'||q==='en') LANG=q; } facing=CFG.facing; reindex(); applyLang(); renderAll();
 if(window.ZXingWASM){
   ZXingWASM.prepareZXingModule({overrides:{wasmBinary:Uint8Array.from(atob(window.__WASM_B64),c=>c.charCodeAt(0)).buffer},fireImmediately:true})
     .then(()=>initPool()).then(()=>{ ready=true; $('badge').style.display='none'; document.documentElement.dataset.workers=poolOK?POOL.length:0; })
